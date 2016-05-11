@@ -1,5 +1,5 @@
-// Generated on 2016-04-30 using generator-angular 0.15.1
-'use strict';
+// Generated on 2016-05-08 using generator-angular 0.15.1
+// 'use strict';
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -33,19 +33,19 @@ module.exports = function (grunt) {
     yeoman: appConfig,
 
     buildcontrol: {
-     options: {
-      dir: 'dist',
-      commit: true,
-      push: true,
-      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-    },
-    pages: {
       options: {
-      remote: 'git@github.com:JensNordal/angular-app.git',
-      branch: 'gh-pages'
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:JensNordal/angular-app.git',
+          branch: 'gh-pages'
+        }
       }
-   }
-},
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -66,8 +66,8 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-   	    tasks: ['sass:server', 'autoprefixer']
-      },
+        tasks: ['sass:server', 'autoprefixer']
+      },  
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -241,33 +241,33 @@ module.exports = function (grunt) {
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     }, 
-
+    
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
-    options: {
-        includePaths: [
-            'bower_components'
-        ]
+        options: {
+            includePaths: [
+                'bower_components'
+            ]
+        },
+        dist: {
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/styles',
+                src: ['*.scss'],
+                dest: '.tmp/styles',
+                ext: '.css'
+            }]
+        },
+        server: {
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/styles',
+                src: ['*.scss'],
+                dest: '.tmp/styles',
+                ext: '.css'
+        }   ]
+        }
     },
-    dist: {
-        files: [{
-            expand: true,
-            cwd: '<%= yeoman.app %>/styles',
-            src: ['*.scss'],
-            dest: '.tmp/styles',
-            ext: '.css'
-        }]
-    },
-    server: {
-        files: [{
-            expand: true,
-            cwd: '<%= yeoman.app %>/styles',
-            src: ['*.scss'],
-            dest: '.tmp/styles',
-            ext: '.css'
-        }]
-    }
-},
 
     // Renames files for browser caching purposes
     filerev: {
@@ -321,27 +321,27 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            '<%= yeoman.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     imagemin: {
       dist: {
@@ -385,7 +385,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'angularAppApp',
+          module: 'chargingStationsApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -452,19 +452,19 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'sass:server',
-        'copy:styles'
-    ],
-    test: [
-      'copy:styles'
-    ],
-    dist: [
-      'sass',
-      'copy:styles',
-      'imagemin',
-      'svgmin'
-    ]
-  },
+       'sass:server',
+       'copy:styles'
+     ],
+     test: [
+       'copy:styles'
+     ],
+     dist: [
+       'sass',
+       'copy:styles',
+       'imagemin',
+       'svgmin'
+     ]
+    },
 
     // Test settings
     karma: {
@@ -478,7 +478,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['connect:dist:keepalive']);
     }
 
     grunt.task.run([
@@ -516,11 +516,11 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    'cssmin',
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    // 'cssmin',
   ]);
 
   grunt.registerTask('default', [
