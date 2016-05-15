@@ -5784,6 +5784,11 @@ body {
   .marketing h4 {
     color: darkblue; }
 
+/* Saved cities in main.html view */
+.savedCities ul li {
+  list-style: none;
+  padding-bottom: 2.5rem; }
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -5800,3 +5805,16 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0; } }
+
+.weather-forecast {
+  background: #eeeeee;
+  float: left;
+  padding: 1.5rem;
+  margin: 0.5rem;
+  width: 22rem;
+  height: 13rem;
+  border-radius: 0.5rem; }
+
+#currentWeatherBtn {
+  margin-top: 3rem;
+  margin-bottom: 3rem; }
