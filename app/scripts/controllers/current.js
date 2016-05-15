@@ -35,6 +35,7 @@ angular.module('angularAppApp')
             }
             if (save===true){
                 $localStorage.savedCities.push(cityData);
+                console.log('city saved');
             } else {
                 console.log('city already saved');
             }
