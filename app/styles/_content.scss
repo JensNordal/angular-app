@@ -68,6 +68,12 @@ body {
   }
 }
 
+ /* Saved cities in main.html view */
+ .savedCities ul li{
+   list-style: none;
+   padding-bottom: 2.5rem;
+ }
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

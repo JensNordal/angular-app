@@ -2,18 +2,18 @@
 
 /**
  * @ngdoc service
- * @name angularAppApp.current
+ * @name angularAppApp.forecast
  * @description
- * # current
+ * # forecast
  * Factory in the angularAppApp.
  */
 angular.module('angularAppApp')
-  .factory('current', function ($resource) {
+  .factory('forecast', function ($resource) {
     // Service logic
     // ...
 
     // Public API here
-    return $resource('http://api.openweathermap.org/data/2.5/weather?id=:cityID&units=imperial&APPID=3129598b80f286fb2221017a394e68b4', {}, {
+    return $resource('http://api.openweathermap.org/data/2.5/forecast/daily?id=:cityID&cnt=16&units=imperial&APPID=3129598b80f286fb2221017a394e68b4', {}, {
       query: {
         method:'GET',
         params:{
